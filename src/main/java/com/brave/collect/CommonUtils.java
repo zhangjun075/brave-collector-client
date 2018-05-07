@@ -52,12 +52,17 @@ public class CommonUtils {
             parMap.put(method,parentId);
             parentSpandId.set(parMap);
         }else {
-            parentSpandId.get().putIfAbsent(method,parentId);
+            parentSpandId.get().put(method,parentId);
         }
     }
 
     public static String getParentSpanId(String method) {
-        return parentSpandId.get().get(method);
+        if(parentSpandId.get() == null) {
+            return "";
+        }
+        String parentSId = parentSpandId.get().get(method);
+        parentSpandId.get().remove(method);
+        return parentSId;
     }
 
     public static void setLocalCollects(CollectInfoDTO collects) {

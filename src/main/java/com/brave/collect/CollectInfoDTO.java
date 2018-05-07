@@ -19,4 +19,9 @@ public class CollectInfoDTO {
     public String ss;
     public String traceId;
     public String parentSpandId;
+    public String param;
+    public String exField1;
+    public String exField2;
+    public String exField3;
+    public String resp;
 }

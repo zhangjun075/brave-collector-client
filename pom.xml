@@ -12,7 +12,7 @@
 
   <groupId>com.brave</groupId>
   <artifactId>brave-collector-client</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>3.0.RELEASE</version>
 
   <name>brave-collector-client</name>
   <!-- FIXME change it to the project's website -->
@@ -24,7 +24,17 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <java.version>1.8</java.version>
   </properties>
-
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Edgware.SR3</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -37,6 +47,11 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-feign</artifactId>
+      <version>1.4.3.RELEASE</version>
     </dependency>
   </dependencies>
   <distributionManagement>
@@ -96,6 +111,18 @@
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
