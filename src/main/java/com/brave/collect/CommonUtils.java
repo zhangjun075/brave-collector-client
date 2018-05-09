@@ -23,9 +23,9 @@ public class CommonUtils {
 
     public static ThreadLocal<List<CollectInfoDTO>> localCollects = new ThreadLocal<>();
 
-    public static ThreadLocal<String> traceId = new ThreadLocal<>();
+    public static ThreadLocal<String> traceId = new InheritableThreadLocal<>();
 
-    public static ThreadLocal<ConcurrentHashMap<String,String>> parentSpandId = new ThreadLocal<>();
+    public static ThreadLocal<ConcurrentHashMap<String,String>> parentSpandId = new InheritableThreadLocal<>();
 
     /**
      * @return
